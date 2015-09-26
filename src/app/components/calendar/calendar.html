@@ -1,0 +1,31 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <a href="#" ng-click="vm.prev()">prev</a>
+        </th>
+        <th colspan="5">
+          {{vm.month}}
+        </th>
+        <th>
+          <a href="#" ng-click="vm.next()">next</a>
+        </th>
+      </tr>
+      <tr>
+        <th ng-repeat="day in vm.days">{{day}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="date in vm.week">
+          <div class="day" ng-class="{'past': date < vm.today, 'unavailable': vm.isUnavailable(date)}">
+            <span ng-click="vm.pick(date)">
+                {{date.format("DD")}}
+            </span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
