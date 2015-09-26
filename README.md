@@ -33,20 +33,20 @@ Implement an HTML5 1-dimensional (i.e., 1-week) calendar that displays a car’s
 # Develop
 To run the app in a development environment with browsersync just run
 
-    ```js
-    gulp serve
-    ```
+  ```js
+  gulp serve
+  ```
 
 If you want to run with a minified version of scripts and css just run
 
-    ```js
-    gulp serve
-    ```
+  ```js
+  gulp serve
+  ```
 
 # Building
 
 To build this app just run
 
-    ```js
-    gulp build
-    ```
+  ```js
+  gulp build
+  ```
