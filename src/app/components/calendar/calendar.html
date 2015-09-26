@@ -1,26 +1,26 @@
-<div>
+<div class="calendar">
   <table>
     <thead>
       <tr>
         <th>
-          <a href="#" ng-click="vm.prev()">prev</a>
+          <a href="#" ng-click="vm.prev()" class="arrow--left"></a>
         </th>
-        <th colspan="5">
+        <th colspan="5" class="month">
           {{vm.month}}
         </th>
         <th>
-          <a href="#" ng-click="vm.next()">next</a>
+          <a href="#" ng-click="vm.next()" class="arrow--right"></a>
         </th>
       </tr>
       <tr>
-        <th ng-repeat="day in vm.days">{{day}}</th>
+        <th class="weekday" ng-repeat="day in vm.days">{{day}}</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td ng-repeat="date in vm.week">
-          <div class="day" ng-class="{'past': date < vm.today, 'unavailable': vm.isUnavailable(date)}">
-            <span ng-click="vm.pick(date)">
+          <div ng-click="vm.pick(date)" class="day" ng-class="{'past': date < vm.today, 'unavailable': vm.isUnavailable(date)}">
+            <span class="number" >
                 {{date.format("DD")}}
             </span>
           </div>
@@ -28,4 +28,9 @@
       </tr>
     </tbody>
   </table>
+
+  <pre>
+    Dates selected by user click:
+    {{ vm.selectedDates | json }}
+  </pre>
 </div>

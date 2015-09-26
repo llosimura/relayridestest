@@ -7,19 +7,30 @@ class CalendarDirectiveController {
     this.activate();
   }
 
+/**
+ * Activate mehtod that kicks in when the directive loads
+ * It Initializes th pagination, the today date, and the selected pages;
+ * It also generates the page
+ */
   activate() {
     this.page = 0;
     this.today = this.moment().startOf('day');
+    this.selectedDates = [];
     this.generatePage(this.today);
   }
-
+  /**
+   * Method that is executed when clickign on a date. Right now it only
+   * adds the date to the selectedDates array
+   */
   pick(date) {
-    this.$log.log(date);
-    if (angular.isFunction(this.onpick)) {
-      this.onpick();
-    }
+    this.selectedDates.push(date.format("YYYY-MM-DD"));
+    this.unavailableDates.push(date.format("YYYY-MM-DD"));
   }
 
+/**
+ * @param  {moment}  date Date that we want to check if is available or not
+ * @return {Boolean}      Return if the date is unavailable
+ */
   isUnavailable(date) {
     return this.unavailableDates.filter( unavailableDate => {
       return date.format("YYYY-MM-DD") === unavailableDate
@@ -68,8 +79,7 @@ export class CalendarDirective {
       controller: CalendarDirectiveController,
       controllerAs: 'vm',
       bindToController: {
-        unavailableDates: '=',
-        onpick: '&'
+        unavailableDates: '='
       },
       templateUrl: 'app/components/calendar/calendar.html',
       scope: {}
