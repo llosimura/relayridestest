@@ -9,6 +9,7 @@ Implement an HTML5 1-dimensional (i.e., 1-week) calendar that displays a car’s
   * Page zero should be this week; the last page should be three months from now
   * The calendar should indicate dates that are not available (data below)
   * Unavailable dates should be visually distinct from dates in the past
+
   ```js
   var unavailableDates = [
     "2015-06-01",
@@ -23,6 +24,7 @@ Implement an HTML5 1-dimensional (i.e., 1-week) calendar that displays a car’s
     "2015-07-29"
   ];
   ```
+
 # Prerequisites
   * nodejs & npm
   * bower
@@ -30,16 +32,21 @@ Implement an HTML5 1-dimensional (i.e., 1-week) calendar that displays a car’s
 
 # Develop
 To run the app in a development environment with browsersync just run
+
     ```js
     gulp serve
     ```
+
 If you want to run with a minified version of scripts and css just run
+
     ```js
     gulp serve
     ```
+
 # Building
 
 To build this app just run
+
     ```js
     gulp build
     ```
